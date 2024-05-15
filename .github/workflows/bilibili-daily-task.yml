@@ -66,7 +66,7 @@ jobs:
       result: ${{ steps.check.outputs.result }} # 不能直接传递secrets的值，否则会被skip，需要转一下
     steps:
     - id: check
-      if: env.IsOpenDailyTask=='true'
+      # if: env.IsOpenDailyTask=='true'
       run: |
         echo "::set-output name=result::开启"
 
@@ -85,11 +85,11 @@ jobs:
 
     # 检出
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       
     # .Net 环境
     - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 6.0.x
  
